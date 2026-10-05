@@ -3,20 +3,21 @@
 把 DeepSeek 网页版（chat.deepseek.com）的对话读成可阅读文本，让 AI 能看到你在 DeepSeek 上聊过什么，并据此总结、追问、接着聊。
 
 **只读**：不发送消息、不删除会话、不改标题。
+**必须需要登录态**
 
 ## 能拉什么
 
-| 数据 | 说明 | 是否需登录 |
+| 数据 | 说明 |
 |---|---|---|
-| 会话列表 | 标题 / 更新时间 / 置顶标记 / 会话 id，可翻全（实测账号上千条） | 需要 |
-| 会话正文 | 完整问答，含思考过程与联网搜索片段 | 需要 |
-| 历史分支 | 编辑提问、重新生成回答留下的旧版本 | 需要 |
-| 分享链接 | 自己创建的分享及分享内对话 | 需要 |
+| 会话列表 | 标题 / 更新时间 / 置顶标记 / 会话 id，可翻全（实测账号上千条） |
+| 会话正文 | 完整问答，含思考过程与联网搜索片段 |
+| 历史分支 | 编辑提问、重新生成回答留下的旧版本 |
+| 分享链接 | 自己创建的分享及分享内对话 |
 
 ## 前置条件
 
 - 本机 Windows，Firefox 已登录 `chat.deepseek.com`
-- 纯 Python 标准库，无需安装任何包，WorkBuddy 内置 Python 与系统 Python 均可运行
+- 纯 Python 标准库，无需安装任何包，Python3+均可运行
 
 必须用 Firefox 的原因：DeepSeek 的登录令牌存在 localStorage 的 `userToken` 键里，**不在 cookie**。Firefox 的 localStorage 可直接读取，而 Edge / Chrome 的 cookie 受 App-Bound Encryption 保护，且该令牌本来也不在 cookie 中。
 
